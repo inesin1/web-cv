@@ -15,6 +15,7 @@ export default defineConfig({
         main: resolve(root, 'index.html'),
         minimal: resolve(root, 'variants/minimal/index.html'),
         terminal: resolve(root, 'variants/terminal/index.html'),
+        contacts: resolve(root, 'contacts/index.html'),
       },
     },
   },
