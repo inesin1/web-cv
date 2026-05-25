@@ -253,8 +253,9 @@ export const CV_DATA: Record<Lang, CVData> = {
         },
       ],
       extras: [
-        'Continuous self-education through documentation, OSS, and LLM-assisted research',
-        'Daily Claude Code / Codex workflow integrated into engineering practice',
+        'Coursework: web development, C#, databases, software architecture, low-level programming',
+        'Taught lab sessions for junior students',
+        'Worked part-time at the college IT center (ИВЦ)',
       ],
     },
     contact: {
@@ -438,8 +439,9 @@ export const CV_DATA: Record<Lang, CVData> = {
         },
       ],
       extras: [
-        'Непрерывное самообразование: документация, OSS, исследования с помощью LLM',
-        'Ежедневная работа с Claude Code / Codex в инженерной практике',
+        'Изучал: веб-разработку, C#, базы данных, программную архитектуру, низкоуровневое программирование',
+        'Преподавал практики для студентов младших курсов',
+        'Подрабатывал в информационно-вычислительном центре колледжа (ИВЦ)',
       ],
     },
     contact: {
