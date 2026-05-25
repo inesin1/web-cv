@@ -255,7 +255,7 @@ export const CV_DATA: Record<Lang, CVData> = {
       extras: [
         'Coursework: web development, C#, databases, software architecture, low-level programming',
         'Taught lab sessions for junior students',
-        'Worked part-time at the college IT center (ИВЦ)',
+        'Worked part-time at the college IT center',
       ],
     },
     contact: {
