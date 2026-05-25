@@ -61,6 +61,7 @@ export type CVChannel = {
   label: string;
   value: string;
   href: string | null;
+  icon: string;
 };
 
 export type CVData = {
@@ -259,10 +260,11 @@ export const CV_DATA: Record<Lang, CVData> = {
       kicker: 'Contact',
       blurb: 'Open to backend-leaning fullstack roles and freelance projects. Best reached on Telegram.',
       channels: [
-        { label: 'Email', value: 'artem.nesin@gmail.com', href: 'mailto:artem.nesin@gmail.com' },
-        { label: 'Telegram', value: '@kurtr2d', href: 'https://t.me/kurtr2d' },
-        { label: 'GitHub', value: 'github.com/inesin1', href: 'https://github.com/inesin1' },
-        { label: 'Location', value: 'Batumi, Georgia', href: null },
+        { label: 'Email', value: 'artem.nesin@gmail.com', href: 'mailto:artem.nesin@gmail.com', icon: '✉' },
+        { label: 'Telegram', value: '@kurtr2d', href: 'https://t.me/kurtr2d', icon: '✦' },
+        { label: 'GitHub', value: 'github.com/inesin1', href: 'https://github.com/inesin1', icon: '◐' },
+        { label: 'LinkedIn', value: 'linkedin.com/in/inesin', href: 'https://www.linkedin.com/in/inesin/', icon: 'in' },
+        { label: 'Location', value: 'Batumi, Georgia', href: null, icon: '◉' },
       ],
     },
     ui: {
@@ -442,10 +444,11 @@ export const CV_DATA: Record<Lang, CVData> = {
       kicker: 'Контакты',
       blurb: 'Открыт к backend-ориентированным fullstack-ролям и фриланс-проектам. Удобнее всего писать в Telegram.',
       channels: [
-        { label: 'Email', value: 'artem.nesin@gmail.com', href: 'mailto:artem.nesin@gmail.com' },
-        { label: 'Telegram', value: '@kurtr2d', href: 'https://t.me/kurtr2d' },
-        { label: 'GitHub', value: 'github.com/inesin1', href: 'https://github.com/inesin1' },
-        { label: 'Локация', value: 'Батуми, Грузия', href: null },
+        { label: 'Email', value: 'artem.nesin@gmail.com', href: 'mailto:artem.nesin@gmail.com', icon: '✉' },
+        { label: 'Telegram', value: '@kurtr2d', href: 'https://t.me/kurtr2d', icon: '✦' },
+        { label: 'GitHub', value: 'github.com/inesin1', href: 'https://github.com/inesin1', icon: '◐' },
+        { label: 'LinkedIn', value: 'linkedin.com/in/inesin', href: 'https://www.linkedin.com/in/inesin/', icon: 'in' },
+        { label: 'Локация', value: 'Батуми, Грузия', href: null, icon: '◉' },
       ],
     },
     ui: {

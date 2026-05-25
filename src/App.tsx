@@ -4,8 +4,6 @@ import { CV_DATA, type CVData, type Lang } from './data';
 const SECTION_IDS = ['about', 'stack', 'experience', 'projects', 'contact'] as const;
 type SectionId = (typeof SECTION_IDS)[number];
 
-const CHANNEL_ICONS = ['✉', '✦', '◐', '◉'];
-
 type Theme = 'light' | 'dark';
 
 function useReveal(dep: unknown) {
@@ -264,32 +262,35 @@ function Contact({ t }: { t: CVData }) {
         </div>
       </div>
       <div className="channels reveal">
-        {t.contact.channels.map((c, i) => (
-          <a
-            key={i}
-            className="channel"
-            href={c.href ?? '#'}
-            target={c.href && c.href.startsWith('http') ? '_blank' : undefined}
-            rel="noopener noreferrer"
-            onClick={(e) => {
-              if (!c.href) {
-                e.preventDefault();
-                navigator.clipboard?.writeText(c.value);
-                setCopied(i);
-                setTimeout(() => setCopied(null), 1500);
-              }
-            }}
-          >
-            <span className="channel-ic">{CHANNEL_ICONS[i] ?? '·'}</span>
-            <div className="channel-body">
-              <div className="channel-label">{c.label}</div>
-              <div className="channel-value">{c.value}</div>
-            </div>
-            <span className={'channel-action' + (copied === i ? ' ok' : '')}>
-              {copied === i ? '✓' : c.href ? '↗' : '⎘'}
-            </span>
-          </a>
-        ))}
+        {t.contact.channels.map((c, i) => {
+          const isExternal = c.href?.startsWith('http');
+          return (
+            <a
+              key={i}
+              className="channel"
+              href={c.href ?? '#'}
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noopener noreferrer' : undefined}
+              onClick={(e) => {
+                if (!c.href) {
+                  e.preventDefault();
+                  navigator.clipboard?.writeText(c.value);
+                  setCopied(i);
+                  setTimeout(() => setCopied(null), 1500);
+                }
+              }}
+            >
+              <span className="channel-ic">{c.icon}</span>
+              <div className="channel-body">
+                <div className="channel-label">{c.label}</div>
+                <div className="channel-value">{c.value}</div>
+              </div>
+              <span className={'channel-action' + (copied === i ? ' ok' : '')}>
+                {copied === i ? '✓' : c.href ? '↗' : '⎘'}
+              </span>
+            </a>
+          );
+        })}
       </div>
     </section>
   );
