@@ -1,6 +1,8 @@
 import { StrictMode, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import './shared.css';
 import { CV_DATA, type Lang } from './data';
+import { ICONS } from './icons';
 
 type Theme = 'light' | 'dark';
 
@@ -84,7 +86,7 @@ function ContactsPage() {
                     }
                   }}
                 >
-                  <span className="channel-ic">{c.icon}</span>
+                  <span className="channel-ic">{ICONS[c.icon]}</span>
                   <div className="channel-body">
                     <div className="channel-label">{c.label}</div>
                     <div className="channel-value">{c.value}</div>

@@ -1,3 +1,5 @@
+import type { IconKey } from './icons';
+
 export type Lang = 'en' | 'ru';
 
 export type CVMeta = {
@@ -61,7 +63,7 @@ export type CVChannel = {
   label: string;
   value: string;
   href: string | null;
-  icon: string;
+  icon: IconKey;
 };
 
 export type CVData = {
@@ -260,11 +262,12 @@ export const CV_DATA: Record<Lang, CVData> = {
       kicker: 'Contact',
       blurb: 'Open to backend-leaning fullstack roles and freelance projects. Best reached on Telegram.',
       channels: [
-        { label: 'Email', value: 'artem.nesin@gmail.com', href: 'mailto:artem.nesin@gmail.com', icon: '✉' },
-        { label: 'Telegram', value: '@kurtr2d', href: 'https://t.me/kurtr2d', icon: '✦' },
-        { label: 'GitHub', value: 'github.com/inesin1', href: 'https://github.com/inesin1', icon: '◐' },
-        { label: 'LinkedIn', value: 'linkedin.com/in/inesin', href: 'https://www.linkedin.com/in/inesin/', icon: 'in' },
-        { label: 'Location', value: 'Batumi, Georgia', href: null, icon: '◉' },
+        { label: 'Email', value: 'artem.nesin@gmail.com', href: 'mailto:artem.nesin@gmail.com', icon: 'email' },
+        { label: 'Telegram', value: '@kurtr2d', href: 'https://t.me/kurtr2d', icon: 'telegram' },
+        { label: 'GitHub', value: 'github.com/inesin1', href: 'https://github.com/inesin1', icon: 'github' },
+        { label: 'LinkedIn', value: 'linkedin.com/in/inesin', href: 'https://www.linkedin.com/in/inesin/', icon: 'linkedin' },
+        { label: 'Book a call', value: 'calendly.com/artem-nesin', href: 'https://calendly.com/artem-nesin', icon: 'calendar' },
+        { label: 'Location', value: 'Batumi, Georgia', href: null, icon: 'location' },
       ],
     },
     ui: {
@@ -444,11 +447,12 @@ export const CV_DATA: Record<Lang, CVData> = {
       kicker: 'Контакты',
       blurb: 'Открыт к backend-ориентированным fullstack-ролям и фриланс-проектам. Удобнее всего писать в Telegram.',
       channels: [
-        { label: 'Email', value: 'artem.nesin@gmail.com', href: 'mailto:artem.nesin@gmail.com', icon: '✉' },
-        { label: 'Telegram', value: '@kurtr2d', href: 'https://t.me/kurtr2d', icon: '✦' },
-        { label: 'GitHub', value: 'github.com/inesin1', href: 'https://github.com/inesin1', icon: '◐' },
-        { label: 'LinkedIn', value: 'linkedin.com/in/inesin', href: 'https://www.linkedin.com/in/inesin/', icon: 'in' },
-        { label: 'Локация', value: 'Батуми, Грузия', href: null, icon: '◉' },
+        { label: 'Email', value: 'artem.nesin@gmail.com', href: 'mailto:artem.nesin@gmail.com', icon: 'email' },
+        { label: 'Telegram', value: '@kurtr2d', href: 'https://t.me/kurtr2d', icon: 'telegram' },
+        { label: 'GitHub', value: 'github.com/inesin1', href: 'https://github.com/inesin1', icon: 'github' },
+        { label: 'LinkedIn', value: 'linkedin.com/in/inesin', href: 'https://www.linkedin.com/in/inesin/', icon: 'linkedin' },
+        { label: 'Созвон', value: 'calendly.com/artem-nesin', href: 'https://calendly.com/artem-nesin', icon: 'calendar' },
+        { label: 'Локация', value: 'Батуми, Грузия', href: null, icon: 'location' },
       ],
     },
     ui: {

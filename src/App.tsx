@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CV_DATA, type CVData, type Lang } from './data';
+import { ICONS } from './icons';
 
 const SECTION_IDS = ['about', 'stack', 'experience', 'projects', 'contact'] as const;
 type SectionId = (typeof SECTION_IDS)[number];
@@ -280,7 +281,7 @@ function Contact({ t }: { t: CVData }) {
                 }
               }}
             >
-              <span className="channel-ic">{c.icon}</span>
+              <span className="channel-ic">{ICONS[c.icon]}</span>
               <div className="channel-body">
                 <div className="channel-label">{c.label}</div>
                 <div className="channel-value">{c.value}</div>
