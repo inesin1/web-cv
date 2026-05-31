@@ -86,7 +86,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink-3); letter-spacing: .14em; text-transform: uppercase;
   margin-bottom: 18px;
 }
-.sec-label::before { content: "— "; color: var(--ink-3); }
+.sec-label::before { content: "/ "; color: var(--ink-3); }
 
 .channel {
   display: flex; align-items: center; gap: 14px;

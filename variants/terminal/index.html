@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>nesin@cv:~$ — Artyom Nesin</title>
+<title>nesin@cv:~$ Artyom Nesin</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -309,6 +309,10 @@
   .commit-bullets { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
   .commit-bullets li { list-style: none; font-size: 13px; color: var(--ink-2); padding-left: 16px; position: relative; line-height: 1.5; }
   .commit-bullets li::before { content: "+"; position: absolute; left: 0; color: var(--green); font-weight: 600; }
+  .commit-group { margin-bottom: 14px; }
+  .commit-group-title { color: var(--blue); font-size: 13px; margin-bottom: 8px; }
+  .commit-group-title::before { content: "## "; color: var(--ink-3); }
+  .commit-group .commit-bullets { margin-bottom: 0; }
   .commit-stack { display: flex; flex-wrap: wrap; gap: 6px; padding-left: 0; }
   .commit-stack span { font-size: 11px; padding: 2px 8px; border: 1px solid var(--line-strong); border-radius: 3px; color: var(--ink-2); }
 

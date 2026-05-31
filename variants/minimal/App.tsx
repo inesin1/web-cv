@@ -171,9 +171,9 @@ function About({ t }: { t: CVData }) {
       </div>
       <div className="about-grid">
         <div className="about-side reveal">
-          5 / 7<br/>
+          {t.meta.experience}<br/>
           <span style={{ display: 'block', marginTop: 8, fontFamily: 'var(--serif)', fontSize: 14, fontStyle: 'italic', textTransform: 'none', letterSpacing: 0, color: 'var(--ink-2)' }}>
-            Five years of commercial backend & fullstack work. Last two — leading on architecture.
+            {t.hero.tagline}
           </span>
         </div>
         <div className="about-body reveal">
@@ -183,7 +183,7 @@ function About({ t }: { t: CVData }) {
       <div className="values">
         {t.about.values.map((v, i) => (
           <div key={i} className="reveal">
-            <div className="value-k">— {String(i + 1).padStart(2, '0')}</div>
+            <div className="value-k">/ {String(i + 1).padStart(2, '0')}</div>
             <div style={{ fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--ink)', marginTop: 4, marginBottom: 12 }}>{v.k}</div>
             <div className="value-v">{v.v}</div>
           </div>
@@ -252,6 +252,14 @@ function Experience({ t }: { t: CVData }) {
                 <ul className="exp-bullets">
                   {e.bullets.map((b, j) => <li key={j}>{b}</li>)}
                 </ul>
+                {e.groups?.map((g, gi) => (
+                  <div key={gi} className="exp-group">
+                    <div className="exp-group-title">{g.title}</div>
+                    <ul className="exp-bullets">
+                      {g.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                    </ul>
+                  </div>
+                ))}
               </div>
               <div className="exp-side">
                 {e.stack.map((s, j) => <span key={j} className="tag">{s}</span>)}

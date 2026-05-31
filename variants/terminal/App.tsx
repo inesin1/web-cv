@@ -220,7 +220,7 @@ function Readme({ t }: { t: CVData }) {
           {t.meta.name}<span className="tag" style={{ fontSize: 18, marginLeft: 14 }}>{t.meta.handle}</span>
         </div>
         <div className="hero-title">
-          <span className="key">role</span>: {t.meta.title} <span style={{ color: 'var(--ink-3)' }}>—</span> <span style={{ color: 'var(--ink-2)' }}>{t.meta.subtitle}</span>
+          <span className="key">role</span>: {t.meta.title} <span style={{ color: 'var(--ink-3)' }}>·</span> <span style={{ color: 'var(--ink-2)' }}>{t.meta.subtitle}</span>
         </div>
       </div>
 
@@ -347,7 +347,7 @@ function Experience({ t }: { t: CVData }) {
                 <div className="commit-head">
                   <span className="commit-hash">{hash}</span>
                   <span className="commit-company">{e.company}</span>
-                  <span className="commit-role">— {e.role}</span>
+                  <span className="commit-role">{e.role}</span>
                   <span className="commit-period">
                     {e.period}
                     {isNow && <span className="now-tag">HEAD</span>}
@@ -357,6 +357,14 @@ function Experience({ t }: { t: CVData }) {
                 <ul className="commit-bullets">
                   {e.bullets.map((b, j) => <li key={j}>{b}</li>)}
                 </ul>
+                {e.groups?.map((g, gi) => (
+                  <div key={gi} className="commit-group">
+                    <div className="commit-group-title">{g.title}</div>
+                    <ul className="commit-bullets">
+                      {g.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                    </ul>
+                  </div>
+                ))}
                 <div className="commit-stack">
                   {e.stack.map((s, j) => <span key={j}>{s}</span>)}
                 </div>
@@ -477,7 +485,7 @@ function Welcome({ files, t, onOpen }: WelcomeProps) {
         ))}
       </div>
       <div className="kbd-row">
-        <kbd>⌘1–7</kbd><span>{isEn ? 'switch tabs' : 'переключить вкладки'}</span>
+        <kbd>⌘1-7</kbd><span>{isEn ? 'switch tabs' : 'переключить вкладки'}</span>
         <kbd>⌘W</kbd><span>{isEn ? 'close current tab' : 'закрыть вкладку'}</span>
         <kbd>⌘E</kbd><span>{isEn ? 'toggle EN / RU' : 'переключить EN / RU'}</span>
       </div>

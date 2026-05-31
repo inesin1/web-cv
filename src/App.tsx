@@ -103,7 +103,7 @@ function Hero({ t }: { t: CVData }) {
       </div>
       <h1 className="hero-name reveal in">{t.meta.name}</h1>
       <p className="hero-role reveal in">
-        <strong>{t.meta.title}</strong> — {t.hero.intro}
+        <strong>{t.meta.title}</strong>. {t.hero.intro}
       </p>
       <div className="hero-chips reveal in">
         <span className="chip"><span className="label">location</span><span className="val">{t.meta.location}</span></span>
@@ -186,6 +186,14 @@ function Experience({ t }: { t: CVData }) {
               <ul className="job-bullets">
                 {e.bullets.map((b, j) => <li key={j}>{b}</li>)}
               </ul>
+              {e.groups?.map((g, gi) => (
+                <div key={gi} className="job-group">
+                  <div className="job-group-title">{g.title}</div>
+                  <ul className="job-bullets">
+                    {g.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                  </ul>
+                </div>
+              ))}
               <div className="job-stack">
                 {e.stack.map((s, j) => <span key={j}>{s}</span>)}
               </div>
