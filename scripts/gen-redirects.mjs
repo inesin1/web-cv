@@ -7,7 +7,7 @@ const redirects = [
   { path: 'tg', url: 'https://t.me/kurtr2d', label: 'Telegram' },
   { path: 'linkedin', url: 'https://www.linkedin.com/in/inesin/', label: 'LinkedIn' },
   { path: 'in', url: 'https://www.linkedin.com/in/inesin/', label: 'LinkedIn' },
-  { path: 'email', url: 'mailto:artem.nesin@gmail.com', label: 'Email' },
+  { path: 'email', url: 'mailto:artyom@nesin.dev', label: 'Email' },
   { path: 'cv', url: '/cv.pdf', label: 'CV (PDF)' },
   { path: 'cal', url: 'https://calendly.com/artem-nesin', label: 'Calendly' },
 ];
