@@ -1,102 +1,116 @@
-import type { IconKey } from './icons';
+import type { IconKey } from './icons'
 
-export type Lang = 'en' | 'ru';
+export type Lang = 'en' | 'ru'
 
 export type CVMeta = {
-  name: string;
-  handle: string;
-  title: string;
-  subtitle: string;
-  location: string;
-  availability: string;
-  salary: string;
-  experience: string;
-  english: string;
-};
+  name: string
+  handle: string
+  title: string
+  subtitle: string
+  location: string
+  availability: string
+  salary: string
+  experience: string
+  english: string
+}
 
 export type CVHero = {
-  tagline: string;
-  intro: string;
-  cta: string;
-  ctaSecondary: string;
-  status: string;
-  currentFocus: string;
-};
+  tagline: string
+  intro: string
+  cta: string
+  ctaSecondary: string
+  status: string
+  currentFocus: string
+}
 
 export type CVAbout = {
-  heading: string;
-  kicker: string;
-  paragraphs: string[];
-  values: { k: string; v: string }[];
-};
+  heading: string
+  kicker: string
+  paragraphs: string[]
+  values: { k: string; v: string }[]
+}
 
-export type CVStackGroup = { name: string; items: string[] };
-export type CVStack = { heading: string; kicker: string; groups: CVStackGroup[] };
+export type CVStackGroup = { name: string; items: string[] }
+export type CVStack = {
+  heading: string
+  kicker: string
+  groups: CVStackGroup[]
+}
 
-export type CVJobGroup = { title: string; bullets: string[] };
+export type CVJobGroup = { title: string; bullets: string[] }
 
 export type CVJob = {
-  company: string;
-  role: string;
-  period: string;
-  note: string;
-  bullets: string[];
-  groups?: CVJobGroup[];
-  stack: string[];
-};
+  company: string
+  role: string
+  period: string
+  note: string
+  bullets: string[]
+  groups?: CVJobGroup[]
+  stack: string[]
+}
 
-export type CVProjectLink = { label: string; href: string };
+export type CVProjectLink = { label: string; href: string }
 
 export type CVProject = {
-  name: string;
-  role: string;
-  desc: string;
-  tags: string[];
-  installs?: string;
-  links?: CVProjectLink[];
-};
+  name: string
+  role: string
+  desc: string
+  tags: string[]
+  installs?: string
+  links?: CVProjectLink[]
+}
 
 export type CVEducationItem = {
-  school: string;
-  degree: string;
-  period: string;
-};
+  school: string
+  degree: string
+  period: string
+}
 
 export type CVChannel = {
-  label: string;
-  value: string;
-  href: string | null;
-  icon: IconKey;
-};
+  label: string
+  value: string
+  href: string | null
+  icon: IconKey
+}
 
 export type CVData = {
-  locale: 'EN' | 'RU';
-  meta: CVMeta;
+  locale: 'EN' | 'RU'
+  meta: CVMeta
   nav: {
-    about: string;
-    stack: string;
-    experience: string;
-    projects: string;
-    education: string;
-    contact: string;
-  };
-  hero: CVHero;
-  about: CVAbout;
-  stack: CVStack;
-  experience: { heading: string; kicker: string; items: CVJob[] };
-  projects: { heading: string; kicker: string; items: CVProject[] };
-  education: { heading: string; kicker: string; items: CVEducationItem[]; extras: string[] };
-  contact: { heading: string; kicker: string; blurb: string; channels: CVChannel[] };
+    about: string
+    stack: string
+    experience: string
+    projects: string
+    education: string
+    contact: string
+  }
+  hero: CVHero
+  about: CVAbout
+  stack: CVStack
+  experience: { heading: string; kicker: string; items: CVJob[] }
+  projects: { heading: string; kicker: string; items: CVProject[] }
+  education: {
+    heading: string
+    kicker: string
+    items: CVEducationItem[]
+    extras: string[]
+  }
+  contact: {
+    heading: string
+    kicker: string
+    blurb: string
+    channels: CVChannel[]
+  }
   ui: {
-    lang: string;
-    theme_light: string;
-    theme_dark: string;
-    scrollHint: string;
-    yearsLabel: string;
-    sectionLabel: (n: number) => string;
-    now: string;
-  };
-};
+    lang: string
+    theme_light: string
+    theme_dark: string
+    scrollHint: string
+    yearsLabel: string
+    sectionLabel: (n: number) => string
+    now: string
+  }
+}
 
 export const CV_DATA: Record<Lang, CVData> = {
   en: {
@@ -122,11 +136,13 @@ export const CV_DATA: Record<Lang, CVData> = {
     },
     hero: {
       tagline: 'I build reliable backends and ship features end-to-end.',
-      intro: 'Designing APIs, data models, queues, caching, and deployment; responsible for the service at every stage, from architecture to production.',
+      intro:
+        'Designing APIs, data models, queues, caching, and deployment; responsible for the service at every stage, from architecture to production.',
       cta: 'Get in touch',
       ctaSecondary: 'Download CV',
       status: 'Open to Middle+ / Senior Backend or Tech Lead roles',
-      currentFocus: 'Currently sharpening system design & infra: NestJS, Postgres, queues, observability.',
+      currentFocus:
+        'Currently sharpening system design & infra: NestJS, Postgres, queues, observability.',
     },
     about: {
       heading: 'About',
@@ -153,7 +169,14 @@ export const CV_DATA: Record<Lang, CVData> = {
         },
         {
           name: 'Backend',
-          items: ['Node.js', 'NestJS', 'REST APIs', 'JWT', 'OAuth', 'WebSockets'],
+          items: [
+            'Node.js',
+            'NestJS',
+            'REST APIs',
+            'JWT',
+            'OAuth',
+            'WebSockets',
+          ],
         },
         {
           name: 'Frontend',
@@ -173,7 +196,15 @@ export const CV_DATA: Record<Lang, CVData> = {
         },
         {
           name: 'DevOps',
-          items: ['Docker', 'docker-compose', 'Kubernetes (basic)', 'GitLab CI/CD', 'VPS administration', 'Vercel', 'Railway'],
+          items: [
+            'Docker',
+            'docker-compose',
+            'Kubernetes (basic)',
+            'GitLab CI/CD',
+            'VPS administration',
+            'Vercel',
+            'Railway',
+          ],
         },
         {
           name: 'Observability & testing',
@@ -181,7 +212,16 @@ export const CV_DATA: Record<Lang, CVData> = {
         },
         {
           name: 'Integrations',
-          items: ['amoCRM / Kommo', 'Asana', 'Google APIs', 'HH.ru', 'Avito', 'SuperJob', 'Naimix', 'Telegram Bot API'],
+          items: [
+            'amoCRM / Kommo',
+            'Asana',
+            'Google APIs',
+            'HH.ru',
+            'Avito',
+            'SuperJob',
+            'Naimix',
+            'Telegram Bot API',
+          ],
         },
       ],
     },
@@ -213,7 +253,8 @@ export const CV_DATA: Record<Lang, CVData> = {
               ],
             },
             {
-              title: 'System 3 · Job-posting orchestration across HH, Avito & SuperJob',
+              title:
+                'System 3 · Job-posting orchestration across HH, Avito & SuperJob',
               bullets: [
                 "Auto-publishes and updates job postings on HH.ru, Avito, and SuperJob from hiring-demand signals in the client's internal system, with automatic salary-rate calculation and per-platform templating; core logic covered with Jest unit tests.",
               ],
@@ -226,7 +267,16 @@ export const CV_DATA: Record<Lang, CVData> = {
               ],
             },
           ],
-          stack: ['TypeScript', 'NestJS', 'Node.js', 'PostgreSQL', 'Redis', 'BullMQ', 'Docker', 'amoCRM'],
+          stack: [
+            'TypeScript',
+            'NestJS',
+            'Node.js',
+            'PostgreSQL',
+            'Redis',
+            'BullMQ',
+            'Docker',
+            'amoCRM',
+          ],
         },
         {
           company: 'Zlatoust City Hospital',
@@ -259,8 +309,14 @@ export const CV_DATA: Record<Lang, CVData> = {
           desc: 'Ticketing & helpdesk system built from scratch: my college graduation project, later adopted across municipal medical institutions in Zlatoust. Component architecture, state management, REST integration.',
           tags: ['Vue 3', 'NestJS', 'MySQL', 'REST'],
           links: [
-            { label: 'Client', href: 'https://github.com/inesin1/ServiceDesk-Client-Vue' },
-            { label: 'Backend', href: 'https://github.com/inesin1/ServiceDesk-Backend' },
+            {
+              label: 'Client',
+              href: 'https://github.com/inesin1/ServiceDesk-Client-Vue',
+            },
+            {
+              label: 'Backend',
+              href: 'https://github.com/inesin1/ServiceDesk-Backend',
+            },
           ],
         },
       ],
@@ -284,14 +340,45 @@ export const CV_DATA: Record<Lang, CVData> = {
     contact: {
       heading: "Let's talk",
       kicker: 'Contact',
-      blurb: 'Open to Middle+ / Senior Backend or Tech Lead roles. Best reached on Telegram.',
+      blurb:
+        'Open to Middle+ / Senior Backend or Tech Lead roles. Best reached on Telegram.',
       channels: [
-        { label: 'Email', value: 'artyom@nesin.dev', href: 'mailto:artyom@nesin.dev', icon: 'email' },
-        { label: 'Telegram', value: '@kurtr2d', href: 'https://t.me/kurtr2d', icon: 'telegram' },
-        { label: 'GitHub', value: 'github.com/inesin1', href: 'https://github.com/inesin1', icon: 'github' },
-        { label: 'LinkedIn', value: 'linkedin.com/in/inesin', href: 'https://www.linkedin.com/in/inesin/', icon: 'linkedin' },
-        { label: 'Book a call', value: 'calendly.com/artem-nesin', href: 'https://calendly.com/artem-nesin', icon: 'calendar' },
-        { label: 'Location', value: 'Batumi, Georgia', href: null, icon: 'location' },
+        {
+          label: 'Email',
+          value: 'artyom@nesin.dev',
+          href: 'mailto:artyom@nesin.dev',
+          icon: 'email',
+        },
+        {
+          label: 'Telegram',
+          value: '@kurtr2d',
+          href: 'https://t.me/kurtr2d',
+          icon: 'telegram',
+        },
+        {
+          label: 'GitHub',
+          value: 'github.com/inesin1',
+          href: 'https://github.com/inesin1',
+          icon: 'github',
+        },
+        {
+          label: 'LinkedIn',
+          value: 'linkedin.com/in/inesin',
+          href: 'https://www.linkedin.com/in/inesin/',
+          icon: 'linkedin',
+        },
+        {
+          label: 'Book a call',
+          value: 'calendly.com/artem-nesin',
+          href: 'https://calendly.com/artem-nesin',
+          icon: 'calendar',
+        },
+        {
+          label: 'Location',
+          value: 'Batumi, Georgia',
+          href: null,
+          icon: 'location',
+        },
       ],
     },
     ui: {
@@ -328,11 +415,13 @@ export const CV_DATA: Record<Lang, CVData> = {
     },
     hero: {
       tagline: 'Делаю надёжный backend и довожу фичи до прода.',
-      intro: 'Проектирую API, модель данных, очереди, кэширование и деплой; отвечаю за сервис на всех этапах, от проектирования до прода.',
+      intro:
+        'Проектирую API, модель данных, очереди, кэширование и деплой; отвечаю за сервис на всех этапах, от проектирования до прода.',
       cta: 'Связаться',
       ctaSecondary: 'Скачать CV',
       status: 'Открыт к ролям Middle+ / Senior Backend или Tech Lead',
-      currentFocus: 'Сейчас углубляюсь в системный дизайн и инфру: NestJS, Postgres, очереди, обсервабельность.',
+      currentFocus:
+        'Сейчас углубляюсь в системный дизайн и инфру: NestJS, Postgres, очереди, обсервабельность.',
     },
     about: {
       heading: 'О себе',
@@ -359,11 +448,23 @@ export const CV_DATA: Record<Lang, CVData> = {
         },
         {
           name: 'Backend',
-          items: ['Node.js', 'NestJS', 'REST API', 'JWT', 'OAuth', 'WebSockets'],
+          items: [
+            'Node.js',
+            'NestJS',
+            'REST API',
+            'JWT',
+            'OAuth',
+            'WebSockets',
+          ],
         },
         {
           name: 'Frontend',
-          items: ['Vue 3', 'Vue Router', 'Pinia', 'Переиспользуемые UI-компоненты'],
+          items: [
+            'Vue 3',
+            'Vue Router',
+            'Pinia',
+            'Переиспользуемые UI-компоненты',
+          ],
         },
         {
           name: 'Базы данных',
@@ -379,7 +480,15 @@ export const CV_DATA: Record<Lang, CVData> = {
         },
         {
           name: 'DevOps',
-          items: ['Docker', 'docker-compose', 'Kubernetes (базовый)', 'GitLab CI/CD', 'Администрирование VPS', 'Vercel', 'Railway'],
+          items: [
+            'Docker',
+            'docker-compose',
+            'Kubernetes (базовый)',
+            'GitLab CI/CD',
+            'Администрирование VPS',
+            'Vercel',
+            'Railway',
+          ],
         },
         {
           name: 'Мониторинг и тесты',
@@ -387,7 +496,16 @@ export const CV_DATA: Record<Lang, CVData> = {
         },
         {
           name: 'Интеграции',
-          items: ['amoCRM / Kommo', 'Asana', 'Google API', 'HH.ru', 'Avito', 'SuperJob', 'Naimix', 'Telegram Bot API'],
+          items: [
+            'amoCRM / Kommo',
+            'Asana',
+            'Google API',
+            'HH.ru',
+            'Avito',
+            'SuperJob',
+            'Naimix',
+            'Telegram Bot API',
+          ],
         },
       ],
     },
@@ -399,7 +517,7 @@ export const CV_DATA: Record<Lang, CVData> = {
           company: 'Rocket.red',
           role: 'Backend-разработчик (Fullstack)',
           period: 'Январь 2024 - настоящее время',
-          note: 'Удалённо · крупный ритейл/q-commerce клиент на amoCRM',
+          note: 'Удалённо',
           bullets: [
             'Спроектировал, разработал и вывел в прод три продакшен-системы в рамках крупных enterprise-контрактов для ритейл/q-commerce клиента, интегрированных в amoCRM; отвечаю за развитие, архитектуру и производительность всех трёх.',
           ],
@@ -432,7 +550,16 @@ export const CV_DATA: Record<Lang, CVData> = {
               ],
             },
           ],
-          stack: ['TypeScript', 'NestJS', 'Node.js', 'PostgreSQL', 'Redis', 'BullMQ', 'Docker', 'amoCRM'],
+          stack: [
+            'TypeScript',
+            'NestJS',
+            'Node.js',
+            'PostgreSQL',
+            'Redis',
+            'BullMQ',
+            'Docker',
+            'amoCRM',
+          ],
         },
         {
           company: 'Городская больница г. Златоуст',
@@ -465,8 +592,14 @@ export const CV_DATA: Record<Lang, CVData> = {
           desc: 'Система тикетинга и helpdesk, написанная с нуля: мой дипломный проект, позже внедрённый в муниципальных медицинских учреждениях Златоуста. Архитектура компонентов, управление состоянием, REST-интеграция.',
           tags: ['Vue 3', 'NestJS', 'MySQL', 'REST'],
           links: [
-            { label: 'Client', href: 'https://github.com/inesin1/ServiceDesk-Client-Vue' },
-            { label: 'Backend', href: 'https://github.com/inesin1/ServiceDesk-Backend' },
+            {
+              label: 'Client',
+              href: 'https://github.com/inesin1/ServiceDesk-Client-Vue',
+            },
+            {
+              label: 'Backend',
+              href: 'https://github.com/inesin1/ServiceDesk-Backend',
+            },
           ],
         },
       ],
@@ -490,14 +623,45 @@ export const CV_DATA: Record<Lang, CVData> = {
     contact: {
       heading: 'На связи',
       kicker: 'Контакты',
-      blurb: 'Открыт к ролям Middle+ / Senior Backend или Tech Lead. Удобнее всего писать в Telegram.',
+      blurb:
+        'Открыт к ролям Middle+ / Senior Backend или Tech Lead. Удобнее всего писать в Telegram.',
       channels: [
-        { label: 'Email', value: 'artyom@nesin.dev', href: 'mailto:artyom@nesin.dev', icon: 'email' },
-        { label: 'Telegram', value: '@kurtr2d', href: 'https://t.me/kurtr2d', icon: 'telegram' },
-        { label: 'GitHub', value: 'github.com/inesin1', href: 'https://github.com/inesin1', icon: 'github' },
-        { label: 'LinkedIn', value: 'linkedin.com/in/inesin', href: 'https://www.linkedin.com/in/inesin/', icon: 'linkedin' },
-        { label: 'Созвон', value: 'calendly.com/artem-nesin', href: 'https://calendly.com/artem-nesin', icon: 'calendar' },
-        { label: 'Локация', value: 'Батуми, Грузия', href: null, icon: 'location' },
+        {
+          label: 'Email',
+          value: 'artyom@nesin.dev',
+          href: 'mailto:artyom@nesin.dev',
+          icon: 'email',
+        },
+        {
+          label: 'Telegram',
+          value: '@kurtr2d',
+          href: 'https://t.me/kurtr2d',
+          icon: 'telegram',
+        },
+        {
+          label: 'GitHub',
+          value: 'github.com/inesin1',
+          href: 'https://github.com/inesin1',
+          icon: 'github',
+        },
+        {
+          label: 'LinkedIn',
+          value: 'linkedin.com/in/inesin',
+          href: 'https://www.linkedin.com/in/inesin/',
+          icon: 'linkedin',
+        },
+        {
+          label: 'Созвон',
+          value: 'calendly.com/artem-nesin',
+          href: 'https://calendly.com/artem-nesin',
+          icon: 'calendar',
+        },
+        {
+          label: 'Локация',
+          value: 'Батуми, Грузия',
+          href: null,
+          icon: 'location',
+        },
       ],
     },
     ui: {
@@ -510,4 +674,4 @@ export const CV_DATA: Record<Lang, CVData> = {
       now: 'Сейчас',
     },
   },
-};
+}
