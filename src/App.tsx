@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { CV_DATA, type CVData, type Lang } from './data';
 import { ICONS } from './icons';
 
-const SECTION_IDS = ['about', 'stack', 'experience', 'projects', 'contact'] as const;
+const SECTION_IDS = ['about', 'stack', 'experience', 'projects', 'education', 'contact'] as const;
 type SectionId = (typeof SECTION_IDS)[number];
 
 type Theme = 'light' | 'dark';
@@ -29,7 +29,9 @@ function useReveal(dep: unknown) {
 function useActiveSection(ids: readonly SectionId[]): SectionId {
   const [active, setActive] = useState<SectionId>(ids[0]);
   useEffect(() => {
-    const onScroll = () => {
+    let frame = 0;
+    const measure = () => {
+      frame = 0;
       const trigger = window.innerHeight * 0.35;
       let cur: SectionId = ids[0];
       for (const id of ids) {
@@ -39,9 +41,15 @@ function useActiveSection(ids: readonly SectionId[]): SectionId {
       }
       setActive(cur);
     };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(measure);
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
+    measure();
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, [ids]);
   return active;
 }
@@ -61,6 +69,7 @@ function Nav({ lang, setLang, theme, setTheme, t, active }: NavProps) {
     { id: 'stack', label: t.nav.stack },
     { id: 'experience', label: t.nav.experience },
     { id: 'projects', label: t.nav.projects },
+    { id: 'education', label: t.nav.education },
     { id: 'contact', label: t.nav.contact },
   ];
   return (
@@ -102,14 +111,17 @@ function Hero({ t }: { t: CVData }) {
         <span>{t.hero.status}</span>
       </div>
       <h1 className="hero-name reveal in">{t.meta.name}</h1>
-      <p className="hero-role reveal in">
-        <strong>{t.meta.title}</strong>. {t.hero.intro}
+      <p className="hero-title reveal in">
+        <strong>{t.meta.title}</strong> <span className="hero-sub">{t.meta.subtitle}</span>
       </p>
+      <p className="hero-role reveal in">{t.hero.intro}</p>
       <div className="hero-chips reveal in">
         <span className="chip"><span className="label">location</span><span className="val">{t.meta.location}</span></span>
+        <span className="chip"><span className="label">citizenship</span><span className="val">{t.meta.citizenship}</span></span>
         <span className="chip"><span className="label">exp</span><span className="val">{t.meta.experience}</span></span>
-        <span className="chip"><span className="label">english</span><span className="val">{t.meta.english}</span></span>
-        <span className="chip"><span className="label">salary</span><span className="val">{t.meta.salary}</span></span>
+        {t.meta.languages.map((l) => (
+          <span key={l.name} className="chip"><span className="label">{l.name}</span><span className="val">{l.level}</span></span>
+        ))}
         <span className="chip"><span className="label">mode</span><span className="val">{t.meta.availability}</span></span>
       </div>
       <div className="hero-cta reveal in">
@@ -117,18 +129,11 @@ function Hero({ t }: { t: CVData }) {
           {t.hero.cta}
           <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M3 7h8M7 3l4 4-4 4"/></svg>
         </a>
-        <button className="btn ghost" onClick={() => window.print()}>
+        <a href={t.meta.cv} download className="btn ghost">
           {t.hero.ctaSecondary}
           <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M7 2v8m0 0L4 7m3 3l3-3M2 12h10"/></svg>
-        </button>
+        </a>
       </div>
-      {/* {t.hero.currentFocus && (
-        <div className="hero-current reveal in">
-          <span className="nowbar"></span>
-          <span className="lbl">{t.ui.now}</span>
-          <span>{t.hero.currentFocus}</span>
-        </div>
-      )} */}
     </header>
   );
 }
@@ -197,6 +202,13 @@ function Experience({ t }: { t: CVData }) {
               <div className="job-stack">
                 {e.stack.map((s, j) => <span key={j}>{s}</span>)}
               </div>
+              {e.links && (
+                <div className="job-links">
+                  {e.links.map((l, j) => (
+                    <a key={j} href={l.href} target="_blank" rel="noopener noreferrer">↗ {l.label}</a>
+                  ))}
+                </div>
+              )}
             </div>
           );
         })}
@@ -222,9 +234,8 @@ function Projects({ t }: { t: CVData }) {
               <div className="proj-tags">
                 {p.tags.map((tg, j) => <span key={j}>{tg}</span>)}
               </div>
-              {p.installs && <span className="proj-badge">● {p.installs}</span>}
             </div>
-            {p.links && p.links.length > 0 && (
+            {p.links && (
               <div className="proj-links">
                 {p.links.map((l, j) => (
                   <a key={j} href={l.href} target="_blank" rel="noopener noreferrer">↗ {l.label}</a>
