@@ -8,7 +8,9 @@ const redirects = [
   { path: 'linkedin', url: 'https://www.linkedin.com/in/inesin/', label: 'LinkedIn' },
   { path: 'in', url: 'https://www.linkedin.com/in/inesin/', label: 'LinkedIn' },
   { path: 'email', url: 'mailto:artyom@nesin.dev', label: 'Email' },
-  { path: 'cv', url: '/cv.pdf', label: 'CV (PDF)' },
+  { path: 'cv', url: '/Artyom_Nesin_CV_EN.pdf', label: 'CV (PDF, EN)' },
+  { path: 'cv-en', url: '/Artyom_Nesin_CV_EN.pdf', label: 'CV (PDF, EN)' },
+  { path: 'cv-ru', url: '/Artyom_Nesin_CV_RU.pdf', label: 'CV (PDF, RU)' },
   { path: 'cal', url: 'https://calendly.com/artem-nesin', label: 'Calendly' },
 ];
 
