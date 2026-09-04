@@ -11,7 +11,7 @@ const trailingSlashRedirect: Plugin = {
     server.middlewares.use((req, res, next) => {
       const url = req.url ?? '';
       const [path, query] = url.split('?');
-      if (!path || path.endsWith('/') || path.includes('.')) {
+      if (!path || path.endsWith('/') || path.includes('.') || path.includes('..')) {
         next();
         return;
       }
@@ -37,8 +37,6 @@ export default defineConfig({
     rolldownOptions: {
       input: {
         main: resolve(root, 'index.html'),
-        minimal: resolve(root, 'variants/minimal/index.html'),
-        terminal: resolve(root, 'variants/terminal/index.html'),
         contacts: resolve(root, 'contacts/index.html'),
       },
     },
